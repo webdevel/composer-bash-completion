@@ -1,0 +1,22 @@
+sudo: false
+language: php
+
+php:
+  - 7.3
+
+before_install:
+  - sudo apt-get update > /dev/null
+  - composer self-update --no-progress --no-interaction --no-plugins
+
+install:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+script:
+  - bash --version
+  - composer --version
+  - ./composer-completion.bash test version
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
