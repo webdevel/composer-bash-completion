@@ -15,6 +15,7 @@ script:
   - bash --version
   - composer --version
   - ./composer-completion.bash test version
+  - make tests
 
 notifications:
   email:

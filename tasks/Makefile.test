@@ -1,0 +1,19 @@
+test/all: test/commands/global test/options/global/short test/options/global/long test/options/global/format ## Run all tests
+
+test/commands/global: ## Run global commands test
+	test -n "$(shell ./composer-completion.bash test _get_global_commands)"; \
+	test 39 -eq $(shell printf %d $(shell ./composer-completion.bash test _get_global_commands | wc -l))
+
+test/options/global/short: ## Run short global options test
+	test -n "$(shell ./composer-completion.bash test _get_short_global_options)"; \
+	test 8 -eq $(shell printf %d $(shell ./composer-completion.bash test _get_short_global_options | wc -l))
+
+test/options/global/long: ## Run long global options test
+	test -n "$(shell ./composer-completion.bash test _get_long_global_options)"; \
+	test 13 -eq $(shell printf %d $(shell ./composer-completion.bash test _get_long_global_options | wc -l))
+
+test/options/global/format: ## Run format global options test
+	test -n "$(shell ./composer-completion.bash test _get_format_global_options)"; \
+	test 4 -eq $(shell printf %d $(shell ./composer-completion.bash test _get_format_global_options | wc -l))
+
+tests: test/all ## Alias for test/all
