@@ -62,7 +62,7 @@ _composer()
     case "$parameter" in
         --format=*)
             _disable_space
-            COMPREPLY=($( compgen $wordlist "$(_get_format_options)" -- "${parameter#*=}" ))
+            COMPREPLY=($( compgen $wordlist "$(_get_format_global_options)" -- "${parameter#*=}" ))
             return
             ;;
         --working-dir=*)
@@ -90,7 +90,7 @@ _disable_space()
     compopt -o nospace
 }
 
-_get_format_options()
+_get_format_global_options()
 {
     local field_seperator=-F
     local dictionary_order=-d
@@ -139,7 +139,7 @@ _get_global_commands()
 
 version()
 {
-    echo "$(basename $0) Version 0.1.0"
+    echo "$(basename $0) Version 1.0.0"
 }
 
 environment=$1

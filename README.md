@@ -8,7 +8,7 @@
 This module depends on the following.
 - [Composer] 1.8.x +
 - [Bash] 4.x +
-- [Bash Completion]
+- [Bash Completion] 2.x +
 
 >### Installation
 Copy `composer-completion.bash` into your `bash_completion.d/` or `~/.completion/` folder.
